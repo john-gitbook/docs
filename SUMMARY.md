@@ -1,3 +1,5 @@
 # Table of contents
 
-* [🎤 new-docs-site](README.md)
+* [🎤 About Outer Space](README.md)
+  * [Documentation: Greeting Team Members](readme/documentation-greeting-team-members.md)
+* [Cows](cows.md)
