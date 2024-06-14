@@ -5,6 +5,9 @@ coverY: 0
 ---
 
 # 😀 Page 1
+{% hint style="warning" %}
+Note: This Documentation Is Outdated
+{% endhint %}
 
 ## Image
 

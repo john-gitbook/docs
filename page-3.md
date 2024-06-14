@@ -3,7 +3,9 @@ description: Architecture
 ---
 
 # ☺️ Page 3
-
+{% hint style="warning" %}
+Note: This Documentation Is Outdated
+{% endhint %}
 
 
 <figure><img src="https://images.unsplash.com/photo-1702908324645-10014fc55593?crop=entropy&#x26;cs=srgb&#x26;fm=jpg&#x26;ixid=M3wxOTcwMjR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDU2NjA1Mjl8&#x26;ixlib=rb-4.0.3&#x26;q=85" alt=""><figcaption></figcaption></figure>
