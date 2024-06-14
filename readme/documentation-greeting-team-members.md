@@ -1,5 +1,9 @@
 # Documentation: Greeting Team Members
 
+{% hint style="info" %}
+Note: This Documentation Is Outdated
+{% endhint %}
+
 This documentation page is a brief one, summarizing a simple conversation where a team member greets the rest of the team.
 
 ## Conversation Summary
