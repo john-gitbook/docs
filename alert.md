@@ -1,6 +1,8 @@
 # ⚠️ Page 9
 
-
+{% hint style="info" %}
+Note: This Documentation Is Outdated
+{% endhint %}
 
 {% tabs %}
 {% tab title="Python" %}

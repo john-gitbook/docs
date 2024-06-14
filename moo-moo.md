@@ -1,5 +1,9 @@
 # Cows
 
+{% hint style="info" %}
+Note: This Documentation Is Outdated
+{% endhint %}
+
 Cattle (_Bos taurus_) are large, [domesticated](https://en.wikipedia.org/wiki/Domestication), [bovid](https://en.wikipedia.org/wiki/Bovidae) [ungulates](https://en.wikipedia.org/wiki/Ungulates) widely kept as [livestock](https://en.wikipedia.org/wiki/Livestock). They are prominent modern members of the subfamily [Bovinae](https://en.wikipedia.org/wiki/Bovinae) and the most widespread species of the genus [_Bos_](https://en.wikipedia.org/wiki/Bos). Mature [female](https://en.wikipedia.org/wiki/Female) cattle are called cows and mature [male](https://en.wikipedia.org/wiki/Male) cattle are [bulls](https://en.wikipedia.org/wiki/Bull). Young female cattle are called heifers, young male cattle are [oxen](https://en.wikipedia.org/wiki/Oxen) or bullocks, and castrated male cattle are known as steers.
 
 Cattle are commonly [raised for meat](https://en.wikipedia.org/wiki/Beef\_cattle), [for dairy products](https://en.wikipedia.org/wiki/Dairy\_cattle), and for [leather](https://en.wikipedia.org/wiki/Leather). As [draft animals](https://en.wikipedia.org/wiki/Draft\_animal), they pull [carts](https://en.wikipedia.org/wiki/Cart) and [farm implements](https://en.wikipedia.org/wiki/List\_of\_agricultural\_machinery). In [India](https://en.wikipedia.org/wiki/India), cattle are [sacred animals](https://en.wikipedia.org/wiki/Animal\_worship). Small breeds such as the [miniature Zebu](https://en.wikipedia.org/wiki/Miniature\_Zebu) are kept as [pets](https://en.wikipedia.org/wiki/Pet).
