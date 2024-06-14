@@ -1,7 +1,5 @@
 # 🌮 Page 2
-{% hint style="info" %}
-Note: This Documentation Is Outdated
-{% endhint %}
+
 this is page 2 and hello
 
 
