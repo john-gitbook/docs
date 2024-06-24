@@ -1,6 +1,7 @@
 # Table of contents
 
-* [😀 Page 1](README.md)
+* [Page](README.md)
+* [😀 Page 1](<README (1).md>)
 * [🌮 Page 2](page-taco.md)
 * [☺️ Page 3](page-3.md)
 * [😎 Page 4](page3-1.md)
@@ -12,10 +13,16 @@
 * [🔟 Page 10](page-10.md)
 * [👾 Page 11](page-11.md)
 * [🫀 Page 12](page-12.md)
+* [🤌 Page 13](page-13.md)
+* [🤩 Page 14](page-14.md)
+* [📀 Page 15](page-15.md)
+* [🤳 Page 16](page-16.md)
+* [🍿 Page 17](page-17.md)
+* [🥬 Page 18](page-18.md)
+* [🥭 Page 19](page-19.md)
+* [💓 Page 20](page-20.md)
 * [📀 emoji](https://www.youtube.com)
 * [😶 Link](https://www.facebook.com)
-* [Page 15](page-15.md)
-* [Page 18](page-18.md)
 
 ## hi
 
