@@ -21,7 +21,19 @@ layout:
 
 # 🎤 Presentation
 
-## **Title: A Universe of Immeasurable Scale**
+## hi
+
+### Titre : Un Univers d'Échelle Incommensurable
+
+* L'univers est d'une vastitude inimaginable, estimé à 93 milliards d'années-lumière de travers.
+* Notre propre galaxie, la Voie Lactée, contient des centaines de milliards d'étoiles, chacune pouvant abriter des systèmes planétaires.
+* Cette échelle vertigineuse éveille notre sens de l'émerveillement et souligne notre place comme une petite mais significative partie d'une grande narration cosmique.
+
+Notes de l'orateur Imaginez juste, la lumière qui nous atteint depuis les coins les plus éloignés de l'univers a commencé son voyage il y a des milliards d'années. Chaque objet céleste que nous voyons ce soir détient des histoires depuis la prime jeunesse de notre univers. L'immensité de l'espace instille un sentiment de stupeur et nous pousse à réfléchir à notre place dans cette danse cosmique complexe.
+
+#### Diapositive 3
+
+Titre : Une Vitrine Céleste de Diversité
 
 * The universe is unimaginably vast, estimated to be 93 billion light-years across.
 * Our Milky Way galaxy alone contains hundreds of billions of stars, each potentially harboring planetary systems.
