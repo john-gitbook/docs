@@ -1,3 +1,5 @@
 # Table of contents
 
-* [🎤 new-docs-site](README.md)
+* [Fontaines DC](README.md)
+* [Idles](idles.md)
+* [Hello](hello.md)
