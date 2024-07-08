@@ -1,7 +1,7 @@
 # Table of contents
 
 * [🎤 Presentation](README.md)
-* [Page](<README (1).md>)
+* [Page](page.md)
 * [😀 Page 1](readme-1.md)
 * [🌮 Page 2](page-taco.md)
 * [☺️ Page 3](page-3.md)
