@@ -6,6 +6,8 @@ coverY: 0
 
 # 😀 Page 1
 
+<figure><img src=".gitbook/assets/CleanShot 2024-05-21 at 10.35.17@2x.png" alt=""><figcaption></figcaption></figure>
+
 [#hello-world](page-taco.md#hello-world "mention")\\
 
 1
