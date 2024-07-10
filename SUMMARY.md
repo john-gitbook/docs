@@ -1,6 +1,6 @@
 # Table of contents
 
-* [🩶 Data and Start-Kit for US Onboarding](README.md)
+* [🩶 Data Integration and Start-Kit for US Onboarding](README.md)
 * [Page](page.md)
 * [😀 Page 1](readme-1.md)
 * [🌮 Page 2](page-taco.md)
