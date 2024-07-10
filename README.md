@@ -14,12 +14,12 @@ layout:
   tableOfContents:
     visible: true
   outline:
-    visible: false
+    visible: true
   pagination:
     visible: true
 ---
 
-# 🩶 Data Integration and Start-Kit for US Onboarding
+# 🩶 Data and Start-Kit for US Onboarding
 
 {% file src="broken-reference" %}
 
