@@ -6,20 +6,20 @@ coverY: 0
 layout:
   cover:
     visible: true
-    size: full
+    size: hero
   title:
     visible: true
   description:
-    visible: true
+    visible: false
   tableOfContents:
     visible: true
   outline:
-    visible: true
+    visible: false
   pagination:
     visible: true
 ---
 
-# 🩶 Data and Start-Kit for US Onboarding
+# 🩶 Data Integration and Start-Kit for US Onboarding
 
 {% file src="broken-reference" %}
 
