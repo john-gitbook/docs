@@ -1,0 +1,1388 @@
+openapi: 3.0.3
+info:
+  title: Laws.Africa Content API
+  version: 19.0.0 (v3)
+  description: Read-only Content API
+paths:
+  /v3/{frbr_uri}:
+    get:
+      operationId: root_retrieve
+      description: |-
+        Get details of a work expression (or a partion of one) using either a work or expression FRBR URI.
+
+        * ``/akn/za/act/1994/2.json``: Act 2 of 1992 in JSON format.
+        * ``/akn/za/act/1994/2/eng@1994-01-01.json``: Act 2 of 1992, English version at 1994-01-01, in JSON format.
+      summary: Retrieve a work expression by FRBR URI.
+      externalDocs:
+        url: https://developers.laws.africa/
+        description: Laws.Africa Developer's Guide
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - epub
+          - html
+          - json
+          - pdf
+          - xml
+          - zip
+      - in: path
+        name: frbr_uri
+        schema:
+          type: string
+        description: The FRBR URI of the work or work expression, without the first
+          slash, such as akn/za/act/1994/2/
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkExpression'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/WorkExpression'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/WorkExpression'
+            application/zip:
+              schema:
+                $ref: '#/components/schemas/WorkExpression'
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/WorkExpression'
+            application/epub+zip:
+              schema:
+                $ref: '#/components/schemas/WorkExpression'
+          description: ''
+  /v3/{frbr_uri}/commencements:
+    get:
+      operationId: commencements_list
+      description: API that returns a description of the commencements details timeline
+        for a work.
+      summary: Get commencements
+      parameters:
+      - in: path
+        name: frbr_uri
+        schema:
+          type: string
+        description: The FRBR URI of the work or work expression, without the first
+          slash, such as akn/za/act/1994/2/
+        required: true
+      tags:
+      - commencements
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Commencements'
+          description: ''
+  /v3/{frbr_uri}/media:
+    get:
+      operationId: media_list
+      description: API for fetching media files (usually images) embedded in a document.
+      parameters:
+      - in: path
+        name: frbr_uri
+        schema:
+          type: string
+        description: The FRBR URI of the work or work expression, without the first
+          slash, such as akn/za/act/1994/2/
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - media
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMediaAttachmentList'
+          description: ''
+  /v3/{frbr_uri}/media/{filename}:
+    get:
+      operationId: media_retrieve
+      description: Download a media file.
+      parameters:
+      - in: path
+        name: filename
+        schema:
+          type: string
+          pattern: ^.*$
+        required: true
+      - in: path
+        name: frbr_uri
+        schema:
+          type: string
+        description: The FRBR URI of the work or work expression, without the first
+          slash, such as akn/za/act/1994/2/
+        required: true
+      tags:
+      - media
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: string
+                format: binary
+          description: ''
+  /v3/{frbr_uri}/media/publication/{filename}:
+    get:
+      operationId: media_publication_retrieve
+      description: Download the media publication file for a work.
+      parameters:
+      - in: path
+        name: filename
+        schema:
+          type: string
+          pattern: ^.*$
+        required: true
+      - in: path
+        name: frbr_uri
+        schema:
+          type: string
+        description: The FRBR URI of the work or work expression, without the first
+          slash, such as akn/za/act/1994/2/
+        required: true
+      tags:
+      - media
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MediaAttachment'
+          description: ''
+  /v3/{frbr_uri}/timeline:
+    get:
+      operationId: timeline_list
+      description: API that returns the event timeline for a work.
+      summary: Get work timeline
+      parameters:
+      - in: path
+        name: frbr_uri
+        schema:
+          type: string
+        description: The FRBR URI of the work or work expression, without the first
+          slash, such as akn/za/act/1994/2/
+        required: true
+      tags:
+      - timeline
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Timeline'
+          description: ''
+  /v3/{frbr_uri}/toc:
+    get:
+      operationId: toc_list
+      description: API that returns a description of the table of contents (TOC) for
+        a work.
+      summary: Get a Table of Contents (TOC)
+      parameters:
+      - in: path
+        name: frbr_uri
+        schema:
+          type: string
+        description: The FRBR URI of the work or work expression, without the first
+          slash, such as akn/za/act/1994/2/
+        required: true
+      tags:
+      - toc
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TOC'
+          description: ''
+  /v3/countries:
+    get:
+      operationId: countries_list
+      description: List of countries that the content API supports. Deprecated, use
+        places API endpoint instead.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - countries
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      deprecated: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPlaceList'
+          description: ''
+  /v3/enrichment-datasets:
+    get:
+      operationId: enrichment_datasets_list
+      description: API for fetching details of enrichment datasets that contain provision-level
+        enrichments for works.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: updated_at__gte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: updated_at__lte
+        schema:
+          type: string
+          format: date-time
+      tags:
+      - enrichment-datasets
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedEnrichmentDatasetSummaryList'
+          description: ''
+  /v3/enrichment-datasets/{id}:
+    get:
+      operationId: enrichment_datasets_retrieve
+      description: API for fetching details of enrichment datasets that contain provision-level
+        enrichments for works.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this enrichment dataset.
+        required: true
+      tags:
+      - enrichment-datasets
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnrichmentDatasetDetail'
+          description: ''
+  /v3/places:
+    get:
+      operationId: places_list
+      description: Places that the content API supports.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - places
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPlaceList'
+          description: ''
+  /v3/places/{frbr_uri_code}:
+    get:
+      operationId: places_retrieve
+      description: Places that the content API supports.
+      parameters:
+      - in: path
+        name: frbr_uri_code
+        schema:
+          type: string
+        required: true
+      tags:
+      - places
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Place'
+          description: ''
+  /v3/places/{frbr_uri_code}/work-expressions:
+    get:
+      operationId: places_work_expressions_list
+      description: List of work expressions for a place.
+      parameters:
+      - in: path
+        name: frbr_uri_code
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - places
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedWorkExpressionList'
+          description: ''
+  /v3/taxonomy-topics:
+    get:
+      operationId: taxonomy_topics_list
+      description: |-
+        API endpoint for listing taxonomy topics. Taxonomy topics are a tree structure of topics that are applied to
+        documents to categorise them.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - taxonomy-topics
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedTaxonomyTopicList'
+          description: ''
+  /v3/taxonomy-topics/{slug}:
+    get:
+      operationId: taxonomy_topics_retrieve
+      description: |-
+        API endpoint for listing taxonomy topics. Taxonomy topics are a tree structure of topics that are applied to
+        documents to categorise them.
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+          description: Unique short name (code) for the topic.
+        required: true
+      tags:
+      - taxonomy-topics
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxonomyTopic'
+          description: ''
+  /v3/taxonomy-topics/{slug}/work-expressions:
+    get:
+      operationId: taxonomy_topics_work_expressions_list
+      description: List of work expressions for a taxonomy topic.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - taxonomy-topics
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedWorkExpressionList'
+          description: ''
+  /v3/work-expressions:
+    get:
+      operationId: work_expressions_list
+      description: List of work expressions across all places.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - work-expressions
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedWorkExpressionList'
+          description: ''
+components:
+  schemas:
+    Amendment:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+          readOnly: true
+          description: Date on which the amendment comes into operation
+        amending_title:
+          type: string
+          description: Title of the amending work.
+        amending_uri:
+          type: string
+          description: FRBR URI of the amending work.
+      required:
+      - amending_title
+      - amending_uri
+      - date
+    Commencement:
+      type: object
+      description: Details of a commencement event.
+      properties:
+        commencing_title:
+          type: string
+          description: Title of the commencing work.
+        commencing_frbr_uri:
+          type: string
+          description: FRBR URI of the commencing work.
+        date:
+          type: string
+          format: date
+          readOnly: true
+          description: Date of the commencement, or null if it is unknown
+        main:
+          type: boolean
+          readOnly: true
+          description: This commencement date is the date on which most of the provisions
+            of the commenced work come into force
+        all_provisions:
+          type: boolean
+          readOnly: true
+          description: All provisions of this work commenced on this date
+        provisions:
+          type: array
+          items:
+            type: string
+          readOnly: true
+          description: A list of the element ids of the provisions that come into
+            force with this commencement
+        note:
+          type: string
+          readOnly: true
+          description: Usually a reference to a provision of the commenced work or
+            a commencing work, if there is a commencement but the date is open to
+            interpretation
+      required:
+      - all_provisions
+      - date
+      - main
+      - note
+      - provisions
+    Commencements:
+      type: object
+      properties:
+        commencements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commencement'
+      required:
+      - commencements
+    EnrichmentDatasetDetail:
+      type: object
+      description: Summary of the details of an enrichment dataset, without the enrichments.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          description: Name of this dataset
+          maxLength: 2048
+        description:
+          type: string
+          description: Description of this dataset
+        url:
+          type: string
+          format: uri
+          readOnly: true
+          description: URL for the dataset's content
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Date and time of creation
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Date and time of last update
+        enrichments:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnrichmentDatasetProvision'
+          readOnly: true
+          description: Enriched provisions that make up this dataset.
+        taxonomy:
+          allOf:
+          - $ref: '#/components/schemas/TaxonomyTopic'
+          readOnly: true
+          description: Taxonomy topic that forms the root of the enrichment taxonomy
+            for this dataset.
+      required:
+      - created_at
+      - description
+      - enrichments
+      - id
+      - name
+      - taxonomy
+      - updated_at
+      - url
+    EnrichmentDatasetProvision:
+      type: object
+      description: An enrichment applied to a work provision.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        provision_id:
+          type: string
+          description: eID of the enriched provision
+          maxLength: 2048
+        taxonomy_topic:
+          type: string
+          description: Topic in the enrichment dataset taxonomy that this provision
+            is enriched with.
+          readOnly: true
+        work:
+          type: string
+          description: FRBR URI of the work that this provision is from.
+          readOnly: true
+      required:
+      - id
+      - provision_id
+      - taxonomy_topic
+      - work
+    EnrichmentDatasetSummary:
+      type: object
+      description: Summary of the details of an enrichment dataset, without the enrichments.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          description: Name of this dataset
+          maxLength: 2048
+        description:
+          type: string
+          description: Description of this dataset
+        url:
+          type: string
+          format: uri
+          readOnly: true
+          description: URL for the dataset's content
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Date and time of creation
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Date and time of last update
+      required:
+      - created_at
+      - description
+      - id
+      - name
+      - updated_at
+      - url
+    Expression:
+      type: object
+      description: Details of an expression of a work.
+      properties:
+        url:
+          type: string
+          format: uri
+          readOnly: true
+          description: URL for full details of this work expression.
+        language:
+          type: string
+          description: Three letter ISO-639-2 language code
+        expression_frbr_uri:
+          type: string
+          description: FRBR URI of this expression.
+        expression_date:
+          type: string
+          format: date
+          description: Date of this expression
+        title:
+          type: string
+          description: Title of this expression, which may be different to the title
+            of the work.
+      required:
+      - expression_date
+      - expression_frbr_uri
+      - language
+      - title
+      - url
+    Link:
+      type: object
+      description: A link related to this object.
+      properties:
+        rel:
+          type: string
+          description: The relationship of the link to the object.
+        title:
+          type: string
+          description: Title of the link.
+        href:
+          type: string
+          format: uri
+        media_type:
+          type: string
+          description: Mime type for the link.
+      required:
+      - href
+      - rel
+      - title
+    Locality:
+      type: object
+      properties:
+        code:
+          type: string
+          readOnly: true
+          description: Unique code of this locality (used in the FRBR URI)
+        name:
+          type: string
+          readOnly: true
+          description: Local name of this locality
+        frbr_uri_code:
+          type: string
+          readOnly: true
+          description: Complete FRBR URI code for this locality.
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          readOnly: true
+          description: A list of alternate links for this locality.
+      required:
+      - code
+      - frbr_uri_code
+      - links
+      - name
+    MediaAttachment:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        filename:
+          type: string
+          maxLength: 255
+        mime_type:
+          type: string
+          readOnly: true
+        size:
+          type: integer
+          readOnly: true
+      required:
+      - mime_type
+      - size
+      - url
+    PaginatedEnrichmentDatasetSummaryList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+        previous:
+          type: string
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnrichmentDatasetSummary'
+    PaginatedMediaAttachmentList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+        previous:
+          type: string
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/MediaAttachment'
+    PaginatedPlaceList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+        previous:
+          type: string
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Place'
+    PaginatedTaxonomyTopicList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+        previous:
+          type: string
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaxonomyTopic'
+    PaginatedWorkExpressionList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+        previous:
+          type: string
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkExpression'
+    Place:
+      type: object
+      properties:
+        code:
+          type: string
+          description: ISO 3166-1 alpha-2 country code.
+          readOnly: true
+        name:
+          type: string
+          description: Name of the country in English.
+          readOnly: true
+        frbr_uri_code:
+          type: string
+          description: FRBR URI code for this place.
+        localities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Locality'
+          description: Localities within this place.
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          readOnly: true
+          description: A list of alternate links for this place.
+      required:
+      - code
+      - frbr_uri_code
+      - links
+      - name
+    PointInTime:
+      type: object
+      description: Details of a point in time for a work.
+      properties:
+        date:
+          type: string
+          format: date
+          description: Date of this point in time.
+        expressions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Expression'
+          description: Expressions available at this point in time.
+      required:
+      - date
+      - expressions
+    PublicationDocument:
+      type: object
+      description: Details of the original publication document for a work.
+      properties:
+        url:
+          type: string
+          format: uri
+          description: |-
+            Override the URL so that saved instances use the signoff URL,
+            whereas unsaved instances (ie. reviewing work expressions before publishing),
+            use the normal app URL.
+          readOnly: true
+        filename:
+          type: string
+          title: File name
+          maxLength: 255
+        mime_type:
+          type: string
+          title: File MIME type
+          maxLength: 255
+        size:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+          title: File size
+      required:
+      - filename
+      - mime_type
+      - url
+    RelatedWork:
+      type: object
+      description: Details of a related work.
+      properties:
+        frbr_uri:
+          type: string
+          description: FRBR URI of the work
+        title:
+          type: string
+          description: Title of the work
+      required:
+      - frbr_uri
+      - title
+    Repeal:
+      type: object
+      description: Describes the repeal event for a work.
+      properties:
+        date:
+          type: string
+          format: date
+          description: Effective date of the repeal.
+        repealing_title:
+          type: string
+          description: Title of the repealing work.
+        repealing_uri:
+          type: string
+          description: FRBR URI of the repealing work.
+      required:
+      - date
+      - repealing_title
+      - repealing_uri
+    TOC:
+      type: object
+      description: Table of Contents for a document.
+      properties:
+        toc:
+          type: array
+          items:
+            $ref: '#/components/schemas/TOCEntry'
+      required:
+      - toc
+    TOCEntry:
+      type: object
+      description: An entry in a document's Table of Contents (TOC).
+      properties:
+        type:
+          type: string
+          description: Type of entry, one of the AKN hierarchical elements.
+        component:
+          type: string
+          description: Component name (after the ! in the FRBR URI) of the component
+            that this entry is a part of.
+        title:
+          type: string
+          description: Friendly title of this entry, taking heading, type and number
+            into account.
+        basic_unit:
+          type: boolean
+          description: Is this a basic unit in the country's local tradition?
+        num:
+          type: string
+          description: Text of the AKN num element.
+        id:
+          type: string
+          description: eId of this entry, if it has one.
+        heading:
+          type: string
+          description: Text of the AKN heading element, if it has one.
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/TOCEntry'
+        url:
+          type: string
+          format: uri
+          description: URL for content for this element.
+      required:
+      - basic_unit
+      - children
+      - component
+      - heading
+      - id
+      - num
+      - title
+      - type
+      - url
+    TaxonomyTopic:
+      type: object
+      description: Details of an entry in the taxonomy topic tree.
+      properties:
+        name:
+          type: string
+          description: Name of the taxonomy topic
+          maxLength: 512
+        slug:
+          type: string
+          description: Unique short name (code) for the topic.
+          maxLength: 4096
+          pattern: ^[-a-zA-Z0-9_]+$
+        id:
+          type: integer
+          readOnly: true
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaxonomyTopic'
+      required:
+      - children
+      - id
+      - name
+      - slug
+    Timeline:
+      type: object
+      properties:
+        timeline:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimelineEntry'
+      required:
+      - timeline
+    TimelineEntry:
+      type: object
+      description: An entry in a work's timeline.
+      properties:
+        date:
+          type: string
+          format: date
+          description: Date of the events.
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimelineEvent'
+          description: The events at this date.
+      required:
+      - date
+      - events
+    TimelineEvent:
+      type: object
+      properties:
+        type:
+          allOf:
+          - $ref: '#/components/schemas/TypeEnum'
+          description: |-
+            Type of the event.
+
+            * `amendment` - Amendment
+            * `assent` - Assent
+            * `commencement` - Commencement
+            * `consolidation` - Consolidation
+            * `publication` - Publication
+            * `repeal` - Repeal
+        description:
+          type: string
+          description: Human-friendly description of the event.
+        by_frbr_uri:
+          type: string
+          description: FRBR URI of the related work (if any) that caused this event.
+        by_title:
+          type: string
+          description: Title of the related work (if any) that caused this event.
+        note:
+          type: string
+          description: Additional human-friendly details associated with this event.
+      required:
+      - by_frbr_uri
+      - by_title
+      - description
+      - note
+      - type
+    TypeEnum:
+      enum:
+      - amendment
+      - assent
+      - commencement
+      - consolidation
+      - publication
+      - repeal
+      type: string
+      description: |-
+        * `amendment` - Amendment
+        * `assent` - Assent
+        * `commencement` - Commencement
+        * `consolidation` - Consolidation
+        * `publication` - Publication
+        * `repeal` - Repeal
+    WorkExpression:
+      type: object
+      description: Details of a published work expression (document).
+      properties:
+        url:
+          type: string
+          format: uri
+          readOnly: true
+          description: Detail URL for this work expression.
+        title:
+          type: string
+          description: Short title of the work, in the expression language.
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Timestamp of when the expression was first created.
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Timestamp of when the expression was last updated.
+        country:
+          type: string
+          description: ISO 3166-1 alpha-2 country code that this work belongs to.
+        locality:
+          type: string
+          description: The code of the locality within the country.
+        nature:
+          type: string
+          description: Doctype component of the work FRBR URI.
+        subtype:
+          type: string
+          description: Subtype component of the work FRBR URI.
+        actor:
+          type: string
+          description: Actor component of the work FRBR URI.
+        year:
+          type: string
+          description: Year portion of the FRBR date component the work FRBR URI.
+        number:
+          type: string
+          description: Number component of the work FRBR URI.
+        frbr_uri:
+          type: string
+          readOnly: true
+          description: FRBR URI that uniquely identifies this work.
+        expression_frbr_uri:
+          type: string
+          description: FRBR URI that uniquely identifies this work expression.
+        publication_date:
+          type: string
+          format: date
+          readOnly: true
+          description: Date of original publication of the work.
+        publication_name:
+          type: string
+          readOnly: true
+          description: Name of the publication in which the work was originally published.
+        publication_number:
+          type: string
+          readOnly: true
+          description: Number of the publication in which the work was originally
+            published.
+        publication_document:
+          allOf:
+          - $ref: '#/components/schemas/PublicationDocument'
+          readOnly: true
+          description: Details of the original publication document file for this
+            work.
+        commenced:
+          type: boolean
+          description: Whether this work has commenced.
+        commenced_in_full:
+          type: boolean
+          readOnly: true
+          description: Do all the provisions at the curernt expression date have a
+            related commencement?
+        commencement_date:
+          type: string
+          format: date
+          description: Date on which the bulk of the work commences.
+        commencing_work:
+          allOf:
+          - $ref: '#/components/schemas/RelatedWork'
+          readOnly: true
+          description: Work that provides the commencement date for the principal
+            work
+        assent_date:
+          type: string
+          format: date
+          readOnly: true
+          description: Date when the work was assented to.
+        repeal:
+          allOf:
+          - $ref: '#/components/schemas/Repeal'
+          readOnly: true
+          description: Description of the repeal of this work, if it has been repealed.
+        parent_work:
+          allOf:
+          - $ref: '#/components/schemas/RelatedWork'
+          readOnly: true
+          description: Details of the parent work, for subsidiary works.
+        expression_date:
+          type: string
+          format: date
+          readOnly: true
+          description: Date of publication or latest amendment
+        language:
+          type: string
+          description: Three letter ISO-639-2 language code for this work expression.
+        points_in_time:
+          type: array
+          items:
+            $ref: '#/components/schemas/PointInTime'
+          readOnly: true
+          description: Available historical versions of this work.
+        amendments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Amendment'
+          readOnly: true
+          description: List of amendments that have been applied to create this expression
+            of the work.
+        work_amendments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Amendment'
+          readOnly: true
+          description: Details of all amendments to this work.
+        stub:
+          type: boolean
+          description: A stub work has no content, only metadata.
+        principal:
+          type: boolean
+          description: A principal work is a main work and not just a repealing, commencing
+            or amending work.
+        numbered_title:
+          type: string
+          readOnly: true
+          description: Alternative title for the work, using the document type and
+            number.
+        taxonomy_topics:
+          type: array
+          items:
+            type: string
+          readOnly: true
+          description: Slugs of the taxonomy topics applicable to this work.
+        as_at_date:
+          type: string
+          format: date
+          description: The date at which this work is known to be up-to-date.
+        custom_properties: {}
+        type_name:
+          type: string
+          readOnly: true
+          description: Human-friendly version of doctype and/or subtype.
+        amendments_made:
+          type: string
+          readOnly: true
+        enacted_as:
+          type: string
+          readOnly: true
+        repeals_made:
+          type: string
+          readOnly: true
+        commencements_made:
+          type: string
+          readOnly: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          readOnly: true
+          description: A list of alternate links for this document.
+        disclaimer:
+          type: string
+          readOnly: true
+          description: Disclaimer text about this work
+        aliases:
+          type: array
+          items:
+            type: string
+          readOnly: true
+          description: Well-known alternative names for this work.
+      required:
+      - aliases
+      - amendments
+      - amendments_made
+      - as_at_date
+      - assent_date
+      - commenced
+      - commenced_in_full
+      - commencement_date
+      - commencements_made
+      - commencing_work
+      - created_at
+      - custom_properties
+      - disclaimer
+      - enacted_as
+      - expression_date
+      - expression_frbr_uri
+      - frbr_uri
+      - language
+      - links
+      - nature
+      - number
+      - numbered_title
+      - parent_work
+      - points_in_time
+      - principal
+      - publication_date
+      - publication_document
+      - publication_name
+      - publication_number
+      - repeal
+      - repeals_made
+      - stub
+      - taxonomy_topics
+      - type_name
+      - updated_at
+      - url
+      - work_amendments
+      - year
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Token-based authentication with required prefix "Token"

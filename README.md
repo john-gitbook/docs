@@ -1,3 +1,7 @@
-# 🎤 new-docs-site
+# 🦲 Default Width Table
 
-this is a message does it work
+|   |   |   |
+| - | - | - |
+|   |   |   |
+|   |   |   |
+|   |   |   |
