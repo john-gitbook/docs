@@ -1,91 +1,19 @@
 ---
-description: This is where you add a description
 cover: >-
-  https://images.unsplash.com/photo-1610296669228-602fa827fc1f?crop=entropy&cs=srgb&fm=jpg&ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHw1fHxzcGFjZXxlbnwwfHx8fDE3MDcyOTQ1NDh8MA&ixlib=rb-4.0.3&q=85
+  https://images.unsplash.com/photo-1701970912701-47d3a8e8515d?crop=entropy&cs=srgb&fm=jpg&ixid=M3wxOTcwMjR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDQzODg3NDB8&ixlib=rb-4.0.3&q=85
 coverY: 0
-layout:
-  cover:
-    visible: true
-    size: full
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: false
-  pagination:
-    visible: true
 ---
 
-# 🩶 Data Integration and Start-Kit for US Onboarding
+# 😀 one
 
-{% file src="broken-reference" %}
 
-## hi
 
-```python
-def print_ten_times_table():
-    """Function to print the 10 times table."""
-    print("10 Times Table:")
-    for i in range(1, 11):
-        print(f"10 x {i} = {10 * i}")
+![](https://images.unsplash.com/photo-1703028408740-4dcc18fcfb6d?crop=entropy\&cs=srgb\&fm=jpg\&ixid=M3wxOTcwMjR8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDQzODg3NDB8\&ixlib=rb-4.0.3\&q=85)
 
-def main():
-    """Main function to run the 10 times table calculator."""
-    print("Welcome to the 10 Times Table Calculator!")
-    print_ten_times_table()
+## 🙏 Part 1
 
-if __name__ == "__main__":
-    main()
+### part 1.2
 
-```
+## 🤙 Part 2
 
-### Titre : Un Univers d'Échelle Incommensurable
-
-* L'univers est d'une vastitude inimaginable, estimé à 93 milliards d'années-lumière de travers.
-* Notre propre galaxie, la Voie Lactée, contient des centaines de milliards d'étoiles, chacune pouvant abriter des systèmes planétaires.
-* Cette échelle vertigineuse éveille notre sens de l'émerveillement et souligne notre place comme une petite mais significative partie d'une grande narration cosmique.
-
-Notes de l'orateur Imaginez juste, la lumière qui nous atteint depuis les coins les plus éloignés de l'univers a commencé son voyage il y a des milliards d'années. Chaque objet céleste que nous voyons ce soir détient des histoires depuis la prime jeunesse de notre univers. L'immensité de l'espace instille un sentiment de stupeur et nous pousse à réfléchir à notre place dans cette danse cosmique complexe.
-
-#### Diapositive 3
-
-Titre : Une Vitrine Céleste de Diversité
-
-* The universe is unimaginably vast, estimated to be 93 billion light-years across.
-* Our Milky Way galaxy alone contains hundreds of billions of stars, each potentially harboring planetary systems.
-* This sheer scale ignites our sense of wonder and underscores our place as a small but significant part of a grand cosmic narrative.
-
-_Speaker Notes_ Just imagine, the light reaching us from the farthest corners of the universe began its journey billions of years ago. Every celestial object we see tonight holds stories from our universe's infancy. The vastness of space instills a sense of awe and compels us to ponder our place in this intricate cosmic dance.
-
-### **Slide 3**
-
-**Title: A Celestial Showcase of Diversity**
-
-* From fiery stars and swirling nebulae to gas giants with rings and icy moons, space boasts a mind-boggling variety of objects.
-* Each celestial body possesses unique characteristics, showcasing the universe's creativity and dynamism.
-* Studying these diverse objects unveils the intricate processes that govern the cosmos and deepens our understanding of the universe's evolution.
-
-_Speaker Notes_ Imagine the swirling beauty of a nebula, the vibrant dance of auroras on Jupiter, or the sheer size of a black hole. Space is a treasure trove of diverse phenomena, each with its own story to tell. By studying these objects, we unlock secrets about the universe's origins, its past, and its potential future.
-
-### **Slide 4**
-
-**Title: A Celestial Showcase of Diversity**
-
-* From fiery stars and swirling nebulae to gas giants with rings and icy moons, space boasts a mind-boggling variety of objects.
-* Each celestial body possesses unique characteristics, showcasing the universe's creativity and dynamism.
-* Studying these diverse objects unveils the intricate processes that govern the cosmos and deepens our understanding of the universe's evolution.
-
-_Speaker Notes_ Imagine the swirling beauty of a nebula, the vibrant dance of auroras on Jupiter, or the sheer size of a black hole. Space is a treasure trove of diverse phenomena, each with its own story to tell. By studying these objects, we unlock secrets about the universe's origins, its past, and its potential future.
-
-### **Slide 5**
-
-**Title: A Celestial Showcase of Diversity**
-
-* From fiery stars and swirling nebulae to gas giants with rings and icy moons, space boasts a mind-boggling variety of objects.
-* Each celestial body possesses unique characteristics, showcasing the universe's creativity and dynamism.
-* Studying these diverse objects unveils the intricate processes that govern the cosmos and deepens our understanding of the universe's evolution.
-
-_Speaker Notes_ Imagine the swirling beauty of a nebula, the vibrant dance of auroras on Jupiter, or the sheer size of a black hole. Space is a treasure trove of diverse phenomena, each with its own story to tell. By studying these objects, we unlock secrets about the universe's origins, its past, and its potential future.
+## 🎧Part 3
