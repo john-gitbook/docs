@@ -15,3 +15,4 @@
 * [Page 4](page-4.md)
 * [Page 5](page-5.md)
 * [Page 6](page-6.md)
+* [Page 7](page-7.md)
