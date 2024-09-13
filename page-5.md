@@ -257,5 +257,3 @@ Once you’ve got the hang of searches for all of an author’s post you can exp
 ## Content Fields
 
 When `querytype` is set to `content` or `boolean_content` the API will search through the default content field for each site. A list of the content field per site can be found in our open-source API code base which is embedded below.
-
-{% @gitlab-files/gitlab-code-block url="https://gitlab.com/openmeasures/backends/openmeasures-api/-/blob/main/smat_be/es_config.py" %}
