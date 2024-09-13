@@ -16,3 +16,6 @@
 * [Page 5](page-5.md)
 * [Page 6](page-6.md)
 * [Page 7](page-7.md)
+* [Page 8](page-8.md)
+* [Page 9](page-9.md)
+* [Page 10](page-10.md)
