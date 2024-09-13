@@ -24,10 +24,6 @@ All API endpoints are hosted at:
 
 
 
-{% swagger src="https://api.smat-app.com/openapi.json" path="/content" method="get" %}
-[https://api.smat-app.com/openapi.json](https://api.smat-app.com/openapi.json)
-{% endswagger %}
-
 {% swagger src="https://api.smat-app.com/openapi.json" path="/timeseries" method="get" %}
 [https://api.smat-app.com/openapi.json](https://api.smat-app.com/openapi.json)
 {% endswagger %}
