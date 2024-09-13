@@ -12,6 +12,8 @@ Important to note: to mitigate the threat of bad actors, the Public API is rate-
 
 There''s a link to the API on the [Open Source section](https://openmeasures.io/open-source/) of the Open Measures website along with more details on the rate-and date-limiting on the Public API:
 
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+
 ## Endpoints
 
 The API has access to the raw JSON behind all of our front-end tools and can be useful for developers and analysts who want to dive deeper into the data or make more fine-grained queries. The API has three endpoints and has an optional boolean logic query for the Content endpoint.
@@ -23,6 +25,14 @@ All API endpoints are hosted at:
 {% endhint %}
 
 
+
+{% swagger src="https://api.smat-app.com/openapi.json" path="/content" method="get" %}
+[https://api.smat-app.com/openapi.json](https://api.smat-app.com/openapi.json)
+{% endswagger %}
+
+{% swagger src="https://api.smat-app.com/openapi.json" path="/timeseries" method="get" %}
+[https://api.smat-app.com/openapi.json](https://api.smat-app.com/openapi.json)
+{% endswagger %}
 
 <details>
 
@@ -95,6 +105,10 @@ days (`d`)
 Defined as 24 hours (86,400,000 milliseconds). All days begin at the earliest possible time, which is usually 00:00:00 (midnight).
 
 </details>
+
+{% swagger src="https://api.smat-app.com/openapi.json" path="/activity" method="get" %}
+[https://api.smat-app.com/openapi.json](https://api.smat-app.com/openapi.json)
+{% endswagger %}
 
 
 
@@ -243,3 +257,5 @@ Once you’ve got the hang of searches for all of an author’s post you can exp
 ## Content Fields
 
 When `querytype` is set to `content` or `boolean_content` the API will search through the default content field for each site. A list of the content field per site can be found in our open-source API code base which is embedded below.
+
+{% @gitlab-files/gitlab-code-block url="https://gitlab.com/openmeasures/backends/openmeasures-api/-/blob/main/smat_be/es_config.py" %}
