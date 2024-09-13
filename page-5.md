@@ -24,10 +24,6 @@ All API endpoints are hosted at:
 
 
 
-{% swagger src="https://api.smat-app.com/openapi.json" path="/timeseries" method="get" %}
-[https://api.smat-app.com/openapi.json](https://api.smat-app.com/openapi.json)
-{% endswagger %}
-
 <details>
 
 <summary>Calendar and fixed intervals</summary>
@@ -99,10 +95,6 @@ days (`d`)
 Defined as 24 hours (86,400,000 milliseconds). All days begin at the earliest possible time, which is usually 00:00:00 (midnight).
 
 </details>
-
-{% swagger src="https://api.smat-app.com/openapi.json" path="/activity" method="get" %}
-[https://api.smat-app.com/openapi.json](https://api.smat-app.com/openapi.json)
-{% endswagger %}
 
 
 
